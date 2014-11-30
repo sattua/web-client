@@ -1,1 +1,26 @@
-web client
+<!DOCTYPE html>
+<!--talk-->
+<html>
+    <head>        
+        <script src="lib/jquery-2.1.1.min.js"></script>
+        <script src="view/accion.js"></script>        
+        <title>{{title}}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <link href="lib/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body onload="init()">
+        <div id="static-container-render-main"></div>
+        <script>
+            function init(){
+                global.dom = $( document );                                
+                
+                global.action.loadApp("hello-app");
+            }
+        </script>
+        <div id="static-container-scripts">
+            <script src="lib/rivets.bundled.min.js"></script>
+            <script src="lib/bootstrap.min.js"></script>
+        </div>
+    </body>
+</html>
