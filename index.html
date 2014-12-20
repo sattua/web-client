@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <!--talk-->
 <html>
-    <head>        
-        <script src="lib/jquery-2.1.1.min.js"></script>
-        <script src="view/accion.js"></script>        
-        <title>{{title}}</title>
+    <head>
+        <script src="lib/external/jquery-2.1.1.min.js"></script>
+        <script src="lib/external/rivets.bundled.min.js"></script>
+        <script src="config/rivets.config.js"></script>
+        <script src="config/no_cache.js"></script>
+        <script src="control/global.accion.js"></script>
+        <title>{title}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
-        <link href="lib/bootstrap.min.css" rel="stylesheet" />
+        <link href="lib/external/bootstrap.min.css" rel="stylesheet" />
     </head>
-    <body onload="init()">
+    <body id="rootApp" onload="init()">
         <div id="static-container-render-main"></div>
-        <script>
+        <script>                        
             
-            //shortcuts
-            var webapp = global.action;
             
             
             function init(){
                 global.dom = $( document );                                
                 
-                global.action.loadApp("hello-app");
+                global.action.loadApp(webapp.HOMEPATH);
             }
         </script>
-        <div id="static-container-scripts">
-            <script src="lib/rivets.bundled.min.js"></script>
-            <script src="lib/bootstrap.min.js"></script>
+        <div id="static-container-scripts">              
         </div>
     </body>
 </html>

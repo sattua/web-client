@@ -1,26 +1,8 @@
-var global = {
-    action: {
-        appendTo: function(newElement,target){}, 
-        renderPage: function(main) {},
-        addCssFile : function(url){},
-        loadApp : function(module){},
-        loadPage: function(page){},
-        buildTemplate: function(page){}
-    },
-    root: {
-        page: {
-            current: { 
-                name : "index",                
-                pages : {},
-            }
-        }
-    },
-    dom:{} 
-};
+
   
 global.action.renderPage = function(page) {      
     $.ajax({
-        url: global.root.page.current.appBase + "/partials/"+global.root.page.current.name+".html",
+        url: global.root.page.current.appBase + "/partials/" + global.root.page.current.name+".html",
         context: document.body
     }).done(function(data) {                
         page(data);
@@ -57,15 +39,12 @@ global.action.loadApp = function(module) {
 };
 
 /*
- * 
+ * It loads a view and its presenter js file
  * @param {page} page
  * @returns {0}
  */
 global.action.loadPage = function(page) {
     global.root.page.current.name = page.name;
     global.action.renderPage(page.render);
-};
-
-global.action.buildTemplate = function(page) {
-    
+    global.action.addJsFile(global.root.page.current.appBase + "/partials/" + page.name+".js");
 };
