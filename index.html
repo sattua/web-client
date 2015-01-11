@@ -7,6 +7,7 @@
         <script src="config/rivets.config.js"></script>
         <script src="config/no_cache.js"></script>
         <script src="control/global.accion.js"></script>
+        <script src="listeners/global.js"></script>
         <title>{title}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
@@ -14,13 +15,9 @@
     </head>
     <body id="rootApp" onload="init()">
         <div id="static-container-render-main"></div>
-        <script>                        
-            
-            
-            
-            function init(){
-                global.dom = $( document );                                
-                
+        <script>   
+            function init(){                
+                global.dom = $( document );
                 global.action.loadApp(webapp.HOMEPATH);
             }
         </script>

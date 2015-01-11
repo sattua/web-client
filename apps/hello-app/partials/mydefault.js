@@ -1,19 +1,19 @@
-local.pages.mydefault.object = {
-    sayHello: function(){
-        
-        var temp = {inputs:{
-                name : "This is my name"
-            }};
-        
-        rivets.bind($('#page-content'), { dataBind : temp } );
-        
-        
-        console.log("Hello");
-    },
-    name : "This is my name"
+local.pages.mydefault.obj = {
+    //attributes
+    name : "This is my name",
+    
+    //methods
+    render: function(data) {                            
+                global.action.addCssFile(global.root.page.current.appBase + "/css/justified-nav.css");
+                $("#static-container-render-main").empty();
+                $("#static-container-render-main").html(data);
+            },
+    start : function(){
+        var form = {name : "my name"};
+        rivets.bind($('#page-content'), {dataBind: form});
+    }    
 };
 
 (function(){
-    local.pages.mydefault.object.sayHello(); 
     
 })(local)
